@@ -1,0 +1,28 @@
+Coordenadas opcionais
+
+data class Occurrence(
+    val lat: Double?,
+    val lng: Double?
+)
+
+fun Occurrence.coordinates(): String? {
+    return lat?.let { latitude ->
+        lng?.let { longitude ->
+            "$latitude, $longitude"
+        }
+    }
+}
+
+fun main() {
+    val o1 = Occurrence(40.66, -7.91)
+    val o2 = Occurrence(null, -7.91)
+
+    println(o1.coordinates())
+    println(o2.coordinates())
+}
+
+
+Texto Simples
+
+40.66, -7.91
+null
